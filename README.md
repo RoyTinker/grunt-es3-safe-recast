@@ -42,15 +42,21 @@ No options yet
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example the incompatible methods and parameters are compiled and merged into a compatible javascript file.
 
 ```js
 grunt.initConfig({
   es3_safe_recast: {
     options: {},
-    files: {
-      'dest/compiled.js': ['src/file1.js', 'src/file2.js'],
-    },
+    files: [
+      {
+        src: [
+          'test/fixtures/incompatible-methods.js',
+          'test/fixtures/incompatible-parameters.js',
+        ],
+        dest: 'tmp/compatible.js',
+      },
+    ],
   },
 });
 ```
