@@ -1,7 +1,7 @@
 {
   "name": "grunt-es3-safe-recast",
   "description": "Recasts all ECMA3 reserved words to their safe alternatives.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/phpro/grunt-es3-safe-recast",
   "author": {
     "name": "Toon Verwerft",
@@ -27,16 +27,13 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "es3-safe-recast": "^0.0.8"
+    "es3-safe-recast": "^0.0.8",
+    "grunt": "~0.4.4"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.9.2",
     "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.4"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.4"
+    "grunt-contrib-nodeunit": "^0.3.3"
   },
   "keywords": [
     "gruntplugin"
