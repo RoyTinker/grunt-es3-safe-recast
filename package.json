@@ -1,7 +1,7 @@
 {
   "name": "grunt-es3-safe-recast",
   "description": "Recasts all ECMA3 reserved words to their safe alternatives.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/phpro/grunt-es3-safe-recast",
   "author": {
     "name": "Toon Verwerft",

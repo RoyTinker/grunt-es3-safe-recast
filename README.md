@@ -67,3 +67,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 2014-07-11   v0.1.0   Basic version based on es3-safe-recast
 2015-06-24   v0.1.1   Fix peerDependencies error in newest npm versions.
+2015-06-24   v0.1.2   Upgrade es3-safe-recast version.
