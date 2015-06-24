@@ -27,7 +27,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "es3-safe-recast": "^0.0.8",
+    "es3-safe-recast": "^2.0.1",
     "grunt": "~0.4.4"
   },
   "devDependencies": {
