@@ -23,6 +23,7 @@ module.exports = function(grunt) {
 
       if (file.src.length > 1) {
         console.log("Skipped " + file.src[0] + ": multiple src locations");
+        return;
       }
       
       var content = grunt.file.read(file.src[0]);
