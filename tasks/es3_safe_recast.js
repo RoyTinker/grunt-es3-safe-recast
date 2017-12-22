@@ -25,11 +25,12 @@ module.exports = function(grunt) {
       file.src.forEach(function(filePath) {
         var content = grunt.file.read(filePath);
         combined += compiler.compile(content);
-        grunt.log.writeln('Compiled ES3 Safe Recast: "' + filePath);
       });
 
-      grunt.file.write(file.dest, combined);
-      grunt.log.writeln('Saved compiled file(s) at: ' + file.dest);
+      if (content !== combined) {
+        grunt.file.write(file.dest, combined);
+        grunt.log.writeln('Saved compiled file(s) at: ' + file.dest);
+      }
     });
 
   });
