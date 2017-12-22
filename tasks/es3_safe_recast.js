@@ -21,11 +21,12 @@ module.exports = function(grunt) {
     // Compile all selected files:
     this.files.forEach(function (file) {
 
-      var combined = '';
-      file.src.forEach(function(filePath) {
-        var content = grunt.file.read(filePath);
-        combined += compiler.compile(content);
-      });
+      if (file.src.length > 1) {
+        console.log("Skipped " + file.src[0] + ": multiple src locations");
+      }
+      
+      var content = grunt.file.read(file.src[0]);
+      var combined = compiler.compile(content);
 
       if (content !== combined) {
         grunt.file.write(file.dest, combined);
