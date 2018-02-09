@@ -10,10 +10,12 @@
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('es3_safe_recast', 'Recasts all ECMA3 reserved words to their safe alternatives.', function() {
+  grunt.registerMultiTask('es3_safe_recast', 'Recasts all ECMA3 reserved words to their safe alternatives, optionally removes trailing commas', function() {
 
     // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({});
+    var options = this.options({
+      trailingComma: false
+    });
 
     // The compiler
     var compiler = require('es3-safe-recast');
@@ -27,7 +29,7 @@ module.exports = function(grunt) {
       }
       
       var content = grunt.file.read(file.src[0]);
-      var combined = compiler.compile(content);
+      var combined = compiler.compile(content, options);
 
       if (content !== combined) {
         grunt.file.write(file.dest, combined);
