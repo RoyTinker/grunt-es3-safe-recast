@@ -32,24 +32,31 @@ module.exports = function(grunt) {
     es3_safe_recast: {
       default_options: {
         options: {
+          trailingComma: false
         },
-        files: [
-          {
-            src: [
-              'test/fixtures/incompatible-methods.js',
-              'test/fixtures/incompatible-parameters.js',
-            ],
-            dest: 'tmp/compatible.js',
-          },
-        ],
+        files: [{
+          src: 'test/fixtures/methods.js',
+          dest: 'tmp/methods.js',
+        },{
+          src: 'test/fixtures/parameters.js',
+          dest: 'tmp/parameters.js',
+        }],
       },
+      "remove-trailing-commas": {
+        options: {
+          trailingComma: true
+        },
+        files: [{
+          src: 'test/fixtures/parameters.js',
+          dest: 'tmp/parameters-no-tc.js',
+        }]
+      }
     },
 
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js'],
-    },
-
+    }
   });
 
   // Actually load this plugin's task(s).
@@ -62,7 +69,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'es3_safe_recast', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'es3_safe_recast', 'es3_safe_recast:remove-trailing-commas', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
