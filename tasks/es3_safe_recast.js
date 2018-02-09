@@ -22,19 +22,16 @@ module.exports = function(grunt) {
 
     // Compile all selected files:
     this.files.forEach(function (file) {
-
-      if (file.src.length > 1) {
-        console.log("Skipped " + file.src[0] + ": multiple src locations");
-        return;
-      }
       
-      var content = grunt.file.read(file.src[0]);
-      var combined = compiler.compile(content, options);
+      var content = file.src.reduce((result, src) => {
+        result.push(grunt.file.read(src));
+        return result;
+      },[]).join("\n");
+      
+      var compiled = compiler.compile(content, options);
 
-      if (content !== combined) {
-        grunt.file.write(file.dest, combined);
-        grunt.log.writeln('Saved compiled file(s) at: ' + file.dest);
-      }
+      grunt.file.write(file.dest, compiled);
+      grunt.log.writeln('Saved compiled file(s) at: ' + file.dest);
     });
 
   });

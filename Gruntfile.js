@@ -50,6 +50,16 @@ module.exports = function(grunt) {
           src: 'test/fixtures/parameters.js',
           dest: 'tmp/parameters-no-tc.js',
         }]
+      },
+      "combine-files": {
+        options: {},
+        files: [{
+          src: [
+            'test/fixtures/methods.js',
+            'test/fixtures/parameters.js'
+          ],
+          dest: 'tmp/combined.js'
+        }]
       }
     },
 
@@ -69,7 +79,13 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'es3_safe_recast', 'es3_safe_recast:remove-trailing-commas', 'nodeunit']);
+  grunt.registerTask('test', [
+    'clean',
+    'es3_safe_recast',
+    'es3_safe_recast:combine-files',
+    'es3_safe_recast:remove-trailing-commas',
+    'nodeunit'
+  ]);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

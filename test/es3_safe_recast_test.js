@@ -9,7 +9,7 @@ exports.es3_safe_recast = {
   },
 
   default_options: function(test) {
-    test.expect(2);
+    test.expect(3);
 
     var actualMethods = grunt.file.read('tmp/methods.js');
     var expectedMethods = grunt.file.read('test/expected/methods.js');
@@ -18,6 +18,10 @@ exports.es3_safe_recast = {
     var actualParams = grunt.file.read('tmp/parameters.js');
     var expectedParams = grunt.file.read('test/expected/parameters.js');
     test.equal(actualParams, expectedParams, 'should safely recast ES3 reserved words in object literals');
+
+    var actualCombined = grunt.file.read('tmp/combined.js');
+    var expectedCombined = grunt.file.read('test/expected/combined.js');
+    test.equal(actualCombined, expectedCombined, 'should safely recast ES3 reserved words and combine files separated by \\n');
 
     test.done();
   },
