@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       var compiled = compiler.compile(content, options);
 
       if (file.src.length === 1 && file.src[0] === file.dest && compiled === content) {
-        grunt.log.writeln('No change necessary (src=dest, input=output): ' + file.src[0]);
+        grunt.verbose.writeln('No change necessary (src=dest, input=output): ' + file.src[0]);
         return;
       }
 
