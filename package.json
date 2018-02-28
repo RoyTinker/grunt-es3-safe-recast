@@ -1,12 +1,13 @@
 {
   "name": "grunt-es3-safe-recast",
-  "description": "Recasts all ECMA3 reserved words to their safe alternatives.",
-  "version": "0.1.2",
+  "description": "Recasts all ECMA3 reserved words to their safe alternatives, and optionally removes trailing commas in array and object literals.",
+  "version": "1.0.0",
   "homepage": "https://github.com/phpro/grunt-es3-safe-recast",
   "author": {
     "name": "Toon Verwerft",
     "email": "toon.verwerft@phpro.be"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/phpro/grunt-es3-safe-recast.git"
@@ -20,22 +21,22 @@
       "url": "https://github.com/phpro/grunt-es3-safe-recast/blob/master/LICENSE-MIT"
     }
   ],
-  "engines": {
-    "node": ">= 0.8.0"
-  },
   "scripts": {
     "test": "grunt test"
   },
   "dependencies": {
-    "es3-safe-recast": "^2.0.1",
-    "grunt": "~0.4.4"
+    "es3-safe-recast": "^3.0.0",
+    "grunt": "^1.0.1"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3"
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-nodeunit": "^1.0.0"
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "engines": {
+    "node": ">= 4"
+  }
 }
