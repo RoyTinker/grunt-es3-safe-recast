@@ -76,4 +76,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 2015-06-24    v0.1.1    Fix peerDependencies error in newest npm versions.
 2015-06-24    v0.1.2    Upgrade es3-safe-recast version.
 2018-02-09    v1.0.0    Upgrade es3-safe-recast, add trailingComma option
+2018-02-28    v1.0.1    Update to new repo location, add author
 ```
